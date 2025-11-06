@@ -1,6 +1,4 @@
-# clases.py
 
-# Clase base tipo interfaz (sin ABC)
 class InterfazCRUD:
     def crear_animal(self, animal):
         pass
@@ -15,7 +13,7 @@ class InterfazCRUD:
         pass
 
 
-# Clase Animal
+
 class Animal:
     def __init__(self, codigo, raza, edad):
         self.__codigo = codigo
@@ -40,13 +38,11 @@ class Animal:
         self.__edad = edad
 
 
-# Clase BaseDatos que hereda de InterfazCRUD
 class BaseDatos(InterfazCRUD):
     def __init__(self):
-        self.__animales = []               # Lista de objetos Animal
-        self.__produccion = {}             # Diccionario {codigo: [cantidades]}
-
-    # Implementación de los métodos CRUD
+        self.__animales = []
+        self.__produccion = {}           
+ Implementación de los métodos CRUD
     def crear_animal(self, animal):
         self.__animales.append(animal)
         self.__produccion[animal.get_codigo()] = []
@@ -88,3 +84,4 @@ class BaseDatos(InterfazCRUD):
             return sum(self.__produccion[codigo])
         else:
             return 0
+
